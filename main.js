@@ -25,12 +25,10 @@ function Read() {
                 </p>
                 <div class="buttons">
                     <button class="primary" onclick="Edit(${i})">
-                    // ? tıklanan elemanı görmek için Edit() içerisine i gönderildi.
                         <i class="fas fa-edit"></i>
                         Edit
                     </button>
                     <button class="danger" onclick="Delete(${i})">
-                    // ? tıklanan elemanı görmek için Delete() içerisine i gönderildi.
                         <i class="fas fa-trash"></i>
                         Delete
                     </button>
@@ -43,4 +41,3 @@ function Read() {
 }
 
 Read();
-
