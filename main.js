@@ -1,16 +1,44 @@
-const userList = ["emin", "fatma", "zehra", "ali", "ramazan"];
+let userList = ["Bekir", "Ali", "Emir"], userListJSONstringify, getUserList, nameListDOM;
 
-localStorage.setItem("name", JSON.stringify(userList));
-localStorage.setItem("userList", JSON.stringify(userList));
+nameListDOM = document.querySelector('#nameList');
 
-const getStorage = localStorage.getItem("name");
-const getStorageJSON = JSON.parse(getStorage)
-// console.log(getStorageJSON[3]);
+userListJSONstringify = JSON.stringify(userList);
+localStorage.setItem("userList", userListJSONstringify)
 
-localStorage.removeItem('name');
-userList.splice(1, 2);
-localStorage.setItem("userList", JSON.stringify(userList));
+function Read() {
+    nameListDOM.innerHTML = "";
+    getUserList = JSON.parse(localStorage.getItem("userList"));
+    // console.log(getUserList)
 
-const nameList = document.querySelector('#nameList');
-nameList.innerHTML = getStorageJSON;
+    if (getUserList != null) {
+
+        if (getUserList.length === 0) {
+            nameListDOM.innerHTML = "There are no any users!"
+        } else {
+            for (let i = 0; i < getUserList.length; i++) {
+                nameListDOM.innerHTML +=
+                    `
+            <div class="user-item">
+                <p>
+                    <i class="fas fa-user"></i>
+                    <span>User :</span> ${getUserList[i]}
+                </p>
+                <div class="buttons">
+                    <button class="primary">
+                        <i class="fas fa-edit"></i>
+                        Edit
+                    </button>
+                    <button class="danger">
+                        <i class="fas fa-trash"></i>
+                        Delete
+                    </button>
+                </div>
+            </div>
+                `;
+            }
+        }
+    }
+}
+
+Read();
 
