@@ -24,11 +24,13 @@ function Read() {
                     <span>User :</span> ${getUserList[i]}
                 </p>
                 <div class="buttons">
-                    <button class="primary">
+                    <button class="primary" onclick="Edit(${i})">
+                    // ? tıklanan elemanı görmek için Edit() içerisine i gönderildi.
                         <i class="fas fa-edit"></i>
                         Edit
                     </button>
-                    <button class="danger">
+                    <button class="danger" onclick="Delete(${i})">
+                    // ? tıklanan elemanı görmek için Delete() içerisine i gönderildi.
                         <i class="fas fa-trash"></i>
                         Delete
                     </button>
